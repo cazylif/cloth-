@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext" ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,6 +16,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "libs/mongodb.ts", "src/pages/create/page.jsx", "src/pages/api/posts/route.js", "lib/mongodb.js" ],
   "exclude": ["node_modules"]
 }
