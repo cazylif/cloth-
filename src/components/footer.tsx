@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 function footer() {
     return (
-        <footer className="footer absolute bottom-0 w-full bg-neutral text-neutral-content p-10">
+        <footer className="footer mt-96 w-full bg-neutral text-neutral-content p-10">
             <aside>
                 <Image
                         src="/6936227_cloth_clothes_clothing_neck_shirt_icon.png"
@@ -14,7 +14,7 @@ function footer() {
                 <p>
                     Cloth! Ltd.
                     <br />
-                    Providing reliable tech since 1992
+                    Providing reliable tech since 2024
                 </p>
             </aside>
             <nav>

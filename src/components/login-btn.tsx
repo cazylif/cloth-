@@ -35,7 +35,7 @@ export default function Component() {
               </a>
             </li>
             <li>
-              <Link href="/mystore/page">My Store </Link>
+              <Link href="/mystore">My Store </Link>
             </li>
             <li><a onClick={()=> signOut()}>Sing out</a></li>
           </ul>
@@ -48,7 +48,13 @@ export default function Component() {
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="0d64989794b1a4c9d89bff571d3d5842.jpg" alt="profile image" />
+            <Image
+                src="http://localhost:3000/0d64989794b1a4c9d89bff571d3d5842.jpg"
+                width={20}
+                height={20}
+                alt="profile image"
+                
+              />
             </div>
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow">

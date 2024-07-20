@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { Children } from 'react'
 import Navbar from '@/components/navbar'
 import Breadcrumbs from '@/components/breadcrumbs'
 import Footer from '@/components/footer'
 
-function Layout(props: any) {
+function Layout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+
   return (
-    <div>
+    <div className=''>
         <Navbar/>
         <Breadcrumbs/>
-        <div>
-          {props.children}
+        <div >
+          {children}
         </div>
-        {/* <div className="relative min-h-screen mt-80">
+        <div className="flex flex-col min-h-screen ">
             <Footer/>
-        </div> */}
+        </div>
     </div>
   )
 }

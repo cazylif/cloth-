@@ -1,6 +1,6 @@
 import clientPromise from '../../../lib/mongodb'
 
-const fn = async (req, res) => {
+const getPosts = async (req, res) => {
     
     try {
 
@@ -19,4 +19,4 @@ const fn = async (req, res) => {
     }
 
 };
-export default fn;
+export default getPosts;
