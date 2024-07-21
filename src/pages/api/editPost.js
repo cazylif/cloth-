@@ -19,7 +19,7 @@ const editPost = async (req, res) => {
             colorInfo, 
             sizeInfo
         } = req.body;
-
+        
         const post = await db.collection("posts").updateOne(
             {
                 _id: new ObjectId(id)
@@ -34,12 +34,13 @@ const editPost = async (req, res) => {
                     gmail: gmail, 
                     imgOwner: imgOwner, 
                     colorInfo: colorInfo, 
-                    sizeInfo: sizeInfo                  
+                    sizeInfo: sizeInfo
                 }
             }
         )
         
-        console.log("...............",title,img,details,price,gmail,imgOwner,colorInfo,sizeInfo),
+        console.log("...............",title,img,details,price,gmail,imgOwner,colorInfo,sizeInfo);
+        console.log(">>>>>>>>>>>>>>>>>>>",req.body)
         res.json(post);
 
 

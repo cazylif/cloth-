@@ -110,8 +110,8 @@ export async function getStaticPaths() {
 function EditPost({
   post: { _id, img, title, details, price ,gmail ,imgOwner }
 }: ContentPageProps) {
+  
     console.log("title:",title)
-
     const { data: session } = useSession() ;
     const router = useRouter()
 
@@ -123,7 +123,8 @@ function EditPost({
     const [ postDetails, setPostDetails ] = useState(details);
     const [ postPrice, setPostPrice ] = useState(price);
     const [ postgmail, setGmail ] = useState(gmail);
-    const [ postimgOwner, setImgOwner ] = useState(imgOwner);
+    const imon = session?.user?.image
+    const [ postimgOwner, setImgOwner ] = useState(imon);
     const [ postColorInfo, setPostColorInfo ] = useState({
         color: [],
     } as any);
@@ -186,9 +187,11 @@ function EditPost({
 
     ///////handlesubit button/////////////////
   const handleSubmit = async (e: any) => {
+  
     e.preventDefault();
-    const imon = session?.user?.image
-    console.log("[id].tsx >",postTitle , postImg , postDetails , postPrice , postColorInfo.color.length  , postSizeInfo.size.length, postgmail , postimgOwner ,"imon >", imon)
+    setImgOwner(session?.user?.image)
+    // const imon = session?.user?.image
+    console.log("[id].tsx >",postTitle , postImg , postDetails , postPrice , postColorInfo , postSizeInfo, postgmail , postimgOwner ,"imon >", imon)
     if (postTitle && postImg  && postDetails && postPrice && postgmail && postimgOwner && postColorInfo.color.length > 0 && postSizeInfo.size.length > 0) {
       try {
 

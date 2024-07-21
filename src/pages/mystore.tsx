@@ -140,7 +140,7 @@ function page(props: Props) {
                                 <td>{posts.colorInfo.color}</td>
                                 <td>{posts.sizeInfo.size}</td>
                                 <td> 
-                                  <Link className='btn mx-2' href={`/${posts._id}`}>Edit</Link>
+                                  <Link className='btn mx-2' href={`mystore/${posts._id}`}>Edit</Link>
                                   <Link className='btn' onClick={() => handleDeletePost(posts._id as string) } href=''>Delete</Link>
                                 </td>
                                 {/* <th>1</th> */}

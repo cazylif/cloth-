@@ -74,9 +74,9 @@ type Props = {
                             
                             <div className="card-actions justify-end">
                                 <button className='btn sm:w-10 md:w-14 xl:w-16 btn-neutral'>Add cart</button>
-                                <Link href='/shop/page'>
-                                    <button className="btn sm:w-10 md:w-20 xl:w-28 btn-neutral">Go</button>
-                                </Link>
+                                
+                                    <Link className="btn sm:w-10 md:w-20 xl:w-28 btn-neutral" href={`shop/${posts._id}`}>Go</Link>
+                               
                                 
                             </div>
                         </div>
