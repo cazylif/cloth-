@@ -163,8 +163,17 @@ type PageParams = {
                     <div className='ml-5 w-1/2'>
                         <h1 className='font-bold text-3xl'>{title}</h1><h2>Price: {price} ฿</h2>
                         <p>{details}</p>
-                        
-                        <div className='mt-10'>
+                        <div className='flex mt-12'>
+                          owner: 
+                          <Image
+                            src={`${imgOwner}`}
+                            height={30}
+                            width={30}
+                            alt='imgOwner'
+                          />
+                          <p>{gmail}</p>
+                        </div>
+                        <div className=''>
                             <p>-Chose color-</p>
                             <select className="select select-primary w-full max-w-xs">
                                 <option disabled selected>Chose color</option>

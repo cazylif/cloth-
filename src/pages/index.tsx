@@ -56,7 +56,7 @@ type Props = {
                 <div className="grid mt-20 mx-20 sm:grid-cols-4 md:grid-cols-4 xl:grid-cols-5 gap-4 ">
                   {posts.map((posts: any) => {
                     return (
-                      <div key={posts._id} className="card w-auto  bg-slate-700 w-96 shadow-xl ">
+                      <div key={posts._id} className="card w-auto  bg-slate-700 shadow-xl ">
                         <figure>
                             <Image
                                 src={`${posts.img}`}

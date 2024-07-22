@@ -122,7 +122,7 @@ function EditPost({
     const [ postImg, setPostImg ] = useState(img);
     const [ postDetails, setPostDetails ] = useState(details);
     const [ postPrice, setPostPrice ] = useState(price);
-    const [ postgmail, setGmail ] = useState(gmail);
+    const [ postgmail, setGmail ] = useState(session?.user?.email);
     const imon = session?.user?.image
     const [ postimgOwner, setImgOwner ] = useState(imon);
     const [ postColorInfo, setPostColorInfo ] = useState({
@@ -190,6 +190,7 @@ function EditPost({
   
     e.preventDefault();
     setImgOwner(session?.user?.image)
+    setGmail(session?.user?.email)
     // const imon = session?.user?.image
     console.log("[id].tsx >",postTitle , postImg , postDetails , postPrice , postColorInfo , postSizeInfo, postgmail , postimgOwner ,"imon >", imon)
     if (postTitle && postImg  && postDetails && postPrice && postgmail && postimgOwner && postColorInfo.color.length > 0 && postSizeInfo.size.length > 0) {
@@ -250,42 +251,49 @@ function EditPost({
                 <h1 className='text-slate-400 font-bold text-2xl mt-9'>Create Product</h1>
                 <br />
                 <p className='text-slate-400 font-bold'>-image url-</p>
-                <input name='img' onChange={(e) => setPostImg(e.target.value)} value={postImg ? postImg : ""} type="text" placeholder="Image url" className="input input-bordered w-full max-w-xs" />
+                <input name='img' onChange={(e) => setPostImg(e.target.value)} value={postImg ? postImg+"" : ""} type="text" placeholder="Image url" className="input input-bordered w-full max-w-xs" />
                 
                 <p className='text-slate-400 font-bold'>-title-</p>
-                <input name='title' onChange={(e) => setPostTitle(e.target.value)} value={postTitle ? postTitle : ""} type="text" placeholder="Title" className="input input-bordered w-full max-w-xs" />
+                <input name='title' onChange={(e) => setPostTitle(e.target.value)} value={postTitle ? postTitle+"" : ""} type="text" placeholder="Title" className="input input-bordered w-full max-w-xs" />
 
                 <p className='text-slate-400 font-bold'>-detail-</p>
-                <textarea name='details' onChange={(e) => setPostDetails(e.target.value)} value={postDetails ? postDetails : ""} placeholder={`${postColorInfo.responseColor}`} className="textarea textarea-bordered textarea-lg w-full max-w-xs"></textarea>
+                <textarea name='details' onChange={(e) => setPostDetails(e.target.value)} value={postDetails ? postDetails+"" : ""} placeholder={`${postColorInfo.responseColor}`} className="textarea textarea-bordered textarea-lg w-full max-w-xs"></textarea>
                 
                 <p className='text-slate-400 font-bold'>-price-</p>
-                <input name='price' onChange={(e) => setPostPrice(e.target.value)} value={postPrice ? postPrice : ""} type="number" placeholder="Price" className="input input-bordered w-full max-w-xs" />
+                <input name='price' onChange={(e) => setPostPrice(e.target.value)} value={postPrice ? postPrice+"" : ""} type="number" placeholder="Price" className="input input-bordered w-full max-w-xs" />
 
                 <p className='text-slate-400 font-bold mt-7'>-color-</p>
                 <div className='flex'>
-                  <input type="checkbox"  className="checkbox mr-2" value={"black"} onChange={ handleChangeColor }/><p className='mr-6'>black</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"white"} onChange={ handleChangeColor }/><p className='mr-6'>white</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"red"} onChange={ handleChangeColor }/><p className='mr-6'>red</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"blue"} onChange={ handleChangeColor }/><p className='mr-6'>blue</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"green"} onChange={ handleChangeColor }/><p className='mr-6'>green</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"pink"} onChange={ handleChangeColor }/><p className='mr-6'>pink</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"black/"} onChange={ handleChangeColor }/><p className='mr-6'>black</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"white/"} onChange={ handleChangeColor }/><p className='mr-6'>white</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"red/"} onChange={ handleChangeColor }/><p className='mr-6'>red</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"blue/"} onChange={ handleChangeColor }/><p className='mr-6'>blue</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"green/"} onChange={ handleChangeColor }/><p className='mr-6'>green</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"pink/"} onChange={ handleChangeColor }/><p className='mr-6'>pink</p>
                 </div>
                 <p className='text-slate-400 font-bold mt-7'>-size-</p>
                 <div className='flex'>
-                  <input type="checkbox"  className="checkbox mr-2" value={"S"} onChange={ handleChangeSize }/><p className='mr-6'>S</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"M"} onChange={ handleChangeSize }/><p className='mr-6'>M</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"L"} onChange={ handleChangeSize }/><p className='mr-6'>L</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"XL"} onChange={ handleChangeSize }/><p className='mr-6'>XL</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"2XL"} onChange={ handleChangeSize }/><p className='mr-6'>2XL</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"S/"} onChange={ handleChangeSize }/><p className='mr-6'>S</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"M/"} onChange={ handleChangeSize }/><p className='mr-6'>M</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"L/"} onChange={ handleChangeSize }/><p className='mr-6'>L</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"XL/"} onChange={ handleChangeSize }/><p className='mr-6'>XL</p>
+                  <input type="checkbox"  className="checkbox mr-2" value={"2XL/"} onChange={ handleChangeSize }/><p className='mr-6'>2XL</p>
                 </div>
                 
-
-                <div className='flex justify-center mt-28'>
-                  <Link href='/mystore'>
-                    <button className="btn btn-outline w-28 mx-4">Cencel</button>
-                  </Link>
-                  <button type='submit' className="btn btn-outline w-28"  >Update</button>
-                </div>
+                {/* whene sucessful */}
+                {message? 
+                  <div className='flex justify-center mt-28'>
+                    <Link className='btn' href='/mystore'>Back to mystore</Link>
+                  </div> 
+                  : 
+                  <div className='flex justify-center mt-28'>
+                    <Link href='/mystore'>
+                      <button className="btn btn-outline w-28 mx-4">Cencel</button>
+                    </Link>
+                    <button type='submit' className="btn btn-outline w-28"  >Update</button>
+                  </div>
+                }
+                
 
               </form>
               
