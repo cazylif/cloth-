@@ -95,16 +95,16 @@ function page(props: Props) {
   if (session) {
     
     return(
-      <Layout>
-        <main className="">
+      <main className="bg-slate-300 dark:bg-black">
+        <Layout>
           <div className='flex flex-row-reverse mb-4 mx-4'>
             <Link href='/create'>
-              <button className='btn justify '>+create</button>
+              <button className='btn justify text-black bg-slate-500 dark:text-slate-200'>+create</button>
             </Link>
           </div>
-          <div className="overflow-x-auto w-full">
+          <div className="overflow-x-auto w-full text-black dark:text-slate-200">
             <table className="table  mb-80">
-                <thead >
+                <thead className='text-black dark:text-slate-200'>
                     <tr >
                         <th></th>
                         <td>Photo</td>
@@ -124,7 +124,7 @@ function page(props: Props) {
                           
                         return (
                             <tr key={posts._id}>
-                                <th>{posts._id}</th>
+                                <td>{posts._id}</td>
                                 <td>
                                   <Image
                                     src={`${posts.img}`}
@@ -137,11 +137,11 @@ function page(props: Props) {
                                 <td>{posts.title}</td>
                                 <td>{posts.details}</td>
                                 <td>{posts.price}</td>
-                                <td>{posts.colorInfo.color}</td>
-                                <td>{posts.sizeInfo.size}</td>
+                                <td>{posts.colorInfo.color.join("/")}</td>
+                                <td>{posts.sizeInfo.size.join("/")}</td>
                                 <td> 
-                                  <Link className='btn mx-2' href={`mystore/${posts._id}`}>Edit</Link>
-                                  <Link className='btn' onClick={() => handleDeletePost(posts._id as string) } href=''>Delete</Link>
+                                  <Link className='btn mx-2 text-black bg-slate-500 dark:text-slate-200' href={`mystore/${posts._id}`}>Edit</Link>
+                                  <Link className='btn text-black bg-slate-500 dark:text-slate-200' onClick={() => handleDeletePost(posts._id as string) } href=''>Delete</Link>
                                 </td>
                                 {/* <th>1</th> */}
                             </tr>
@@ -152,7 +152,7 @@ function page(props: Props) {
                   ) : (
                     <h2 className='flex justify-center'>NO PRODUCT...</h2>
                   )}
-              <tfoot>
+              <tfoot className='text-black dark:text-slate-200'>
                 <tr>
                   <th></th>
                   <td>Photo</td>
@@ -167,8 +167,8 @@ function page(props: Props) {
               </tfoot>
             </table>
           </div>
-        </main>
-      </Layout>
+        </Layout>
+      </main>
     )
     
   }

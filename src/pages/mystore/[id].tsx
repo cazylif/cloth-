@@ -243,72 +243,77 @@ function EditPost({
         // const img_owner = session.user?.image;
         console.log("error: ",error);
         return(
-          <Layout>
-            <div className='container mx-auto'>
-              <form onSubmit={ handleSubmit } id='form'>
-                {error? <div className='alert'>{error}</div> : null}
-                {message? <div className='alert'>{message}</div> : null}
-                <h1 className='text-slate-400 font-bold text-2xl mt-9'>Create Product</h1>
-                <br />
-                <p className='text-slate-400 font-bold'>-image url-</p>
-                <input name='img' onChange={(e) => setPostImg(e.target.value)} value={postImg ? postImg+"" : ""} type="text" placeholder="Image url" className="input input-bordered w-full max-w-xs" />
-                
-                <p className='text-slate-400 font-bold'>-title-</p>
-                <input name='title' onChange={(e) => setPostTitle(e.target.value)} value={postTitle ? postTitle+"" : ""} type="text" placeholder="Title" className="input input-bordered w-full max-w-xs" />
+          <main className='bg-slate-300 dark:bg-black'>
+            
+            <Layout>
+              <div className='container mx-auto'>
+                <form onSubmit={ handleSubmit } id='form'>
+                  {error? <div className='alert'>{error}</div> : null}
+                  {message? <div className='alert'>{message}</div> : null}
+                  <h1 className='font-bold text-2xl mt-9 text-black dark:text-slate-200'>Create Product</h1>
+                  <br />
+                  <p className=' font-bold text-black dark:text-slate-200'>-image url-</p>
+                  <input name='img' onChange={(e) => setPostImg(e.target.value)} value={postImg ? postImg+"" : ""} type="text" placeholder="Image url" className="input input-bordered w-full max-w-xs bg-slate-500  dark:bg-gray-800" />
+                  
+                  <p className='font-bold text-black dark:text-slate-200'>-title-</p>
+                  <input name='title' onChange={(e) => setPostTitle(e.target.value)} value={postTitle ? postTitle+"" : ""} type="text" placeholder="Title" className="input input-bordered w-full max-w-xs bg-slate-500  dark:bg-gray-800" />
 
-                <p className='text-slate-400 font-bold'>-detail-</p>
-                <textarea name='details' onChange={(e) => setPostDetails(e.target.value)} value={postDetails ? postDetails+"" : ""} placeholder={`${postColorInfo.responseColor}`} className="textarea textarea-bordered textarea-lg w-full max-w-xs"></textarea>
-                
-                <p className='text-slate-400 font-bold'>-price-</p>
-                <input name='price' onChange={(e) => setPostPrice(e.target.value)} value={postPrice ? postPrice+"" : ""} type="number" placeholder="Price" className="input input-bordered w-full max-w-xs" />
+                  <p className=' font-bold text-black dark:text-slate-200'>-detail-</p>
+                  <textarea name='details' onChange={(e) => setPostDetails(e.target.value)} value={postDetails ? postDetails+"" : ""} placeholder={`${postColorInfo.responseColor}`} className="textarea textarea-bordered textarea-lg w-full max-w-xs bg-slate-500  dark:bg-gray-800"></textarea>
+                  
+                  <p className=' font-bold text-black dark:text-slate-200'>-price-</p>
+                  <input name='price' onChange={(e) => setPostPrice(e.target.value)} value={postPrice ? postPrice+"" : ""} type="number" placeholder="Price" className="input input-bordered w-full max-w-xs bg-slate-500  dark:bg-gray-800" />
 
-                <p className='text-slate-400 font-bold mt-7'>-color-</p>
-                <div className='flex'>
-                  <input type="checkbox"  className="checkbox mr-2" value={"black/"} onChange={ handleChangeColor }/><p className='mr-6'>black</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"white/"} onChange={ handleChangeColor }/><p className='mr-6'>white</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"red/"} onChange={ handleChangeColor }/><p className='mr-6'>red</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"blue/"} onChange={ handleChangeColor }/><p className='mr-6'>blue</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"green/"} onChange={ handleChangeColor }/><p className='mr-6'>green</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"pink/"} onChange={ handleChangeColor }/><p className='mr-6'>pink</p>
-                </div>
-                <p className='text-slate-400 font-bold mt-7'>-size-</p>
-                <div className='flex'>
-                  <input type="checkbox"  className="checkbox mr-2" value={"S/"} onChange={ handleChangeSize }/><p className='mr-6'>S</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"M/"} onChange={ handleChangeSize }/><p className='mr-6'>M</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"L/"} onChange={ handleChangeSize }/><p className='mr-6'>L</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"XL/"} onChange={ handleChangeSize }/><p className='mr-6'>XL</p>
-                  <input type="checkbox"  className="checkbox mr-2" value={"2XL/"} onChange={ handleChangeSize }/><p className='mr-6'>2XL</p>
-                </div>
-                
-                {/* whene sucessful */}
-                {message? 
-                  <div className='flex justify-center mt-28'>
-                    <Link className='btn' href='/mystore'>Back to mystore</Link>
-                  </div> 
-                  : 
-                  <div className='flex justify-center mt-28'>
-                    <Link href='/mystore'>
-                      <button className="btn btn-outline w-28 mx-4">Cencel</button>
-                    </Link>
-                    <button type='submit' className="btn btn-outline w-28"  >Update</button>
+                  <p className=' font-bold mt-7 text-black dark:text-slate-200'>-color-</p>
+                  <div className='flex'>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"black"} onChange={ handleChangeColor }/><p className='mr-6 text-black dark:text-slate-200'>black</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"white"} onChange={ handleChangeColor }/><p className='mr-6 text-black dark:text-slate-200'>white</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"red"} onChange={ handleChangeColor }/><p className='mr-6 text-black dark:text-slate-200'>red</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"blue"} onChange={ handleChangeColor }/><p className='mr-6 text-black dark:text-slate-200'>blue</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"green"} onChange={ handleChangeColor }/><p className='mr-6 text-black dark:text-slate-200'>green</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"pink"} onChange={ handleChangeColor }/><p className='mr-6 text-black dark:text-slate-200'>pink</p>
                   </div>
-                }
+                  <p className=' font-bold mt-7 text-black dark:text-slate-200'>-size-</p>
+                  <div className='flex'>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"S"} onChange={ handleChangeSize }/><p className='mr-6 text-black dark:text-slate-200'>S</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"M"} onChange={ handleChangeSize }/><p className='mr-6 text-black dark:text-slate-200'>M</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"L"} onChange={ handleChangeSize }/><p className='mr-6 text-black dark:text-slate-200'>L</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"XL"} onChange={ handleChangeSize }/><p className='mr-6 text-black dark:text-slate-200'>XL</p>
+                    <input type="checkbox"  className="checkbox mr-2 border-black dark:border-white" value={"2XL"} onChange={ handleChangeSize }/><p className='mr-6 text-black dark:text-slate-200'>2XL</p>
+                  </div>
+                  
+                  {/* whene sucessful */}
+                  {message? 
+                    <div className='flex justify-center mt-28'>
+                      <Link className='btn' href='/mystore'>Back to mystore</Link>
+                    </div> 
+                    : 
+                    <div className='flex justify-center mt-28'>
+                      <Link href='/mystore'>
+                        <button className="btn btn-outline w-28 mx-4 text-black dark:text-slate-200">Cencel</button>
+                      </Link>
+                      <button type='submit' className="btn btn-outline w-28 text-black dark:text-slate-200"  >Update</button>
+                    </div>
+                  }
+                  
+
+                </form>
+                
                 
 
-              </form>
-              
-              
-
-            </div>
-          </Layout>
+              </div>
+            </Layout>
+          </main>
         )
       }
         return(
-          <Layout>
-            <div className='flex justify-center mt-28'>
-              <button onClick={() => signIn()} className='btn'>Login with Google</button>
-            </div>
-          </Layout>
+          <main className='bg-slate-300 dark:bg-black'>
+            <Layout>
+              <div className='flex justify-center mt-28'>
+                <button onClick={() => signIn()} className='btn text-black dark:text-slate-200'>Login with Google</button>
+              </div>
+            </Layout>
+          </main>
         )
   
 }

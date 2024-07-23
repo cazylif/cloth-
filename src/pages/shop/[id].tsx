@@ -27,8 +27,8 @@ type PageParams = {
     title: String;
     details: String;
     price: String;
-    colorInfo: colorInfo;
-    sizeInfo: sizeInfo;
+    colorInfo: String;
+    sizeInfo: String;
   }
  type colorInfo = {
      color: String;
@@ -129,41 +129,24 @@ type PageParams = {
   }: ContentPageProps) {
     console.log("conlorInfo: ", colorInfo.color)
     return (
-        <main className=''>
+        <main className='bg-slate-300 dark:bg-black'>
             <Layout>
 
                 <div className='flex flex-wrap justify-center mt-20  '>
-                    <div className="carousel carousel-vertical rounded-box h-96">
-                        {/* {img.map((img: any) => {
-                            return (
-                                <div key={img._id} className="carousel-item h-full">
-                                    <Image
-                                        src={`{${img}}`}
-                                        height={200}
-                                        width={200}
-                                        alt='productimg'
-                                        key={img._id}
-                                    />
-                                </div>
-                            )
-                        })} */}
-                        
+                    <div className="carousel carousel-vertical rounded-box h-96">                  
                             <Image
                                 src={`${img}`}
-                                height={400}
+                                height={450}
                                 width={400}
-                                alt='productimg'
-                                
+                                alt='productimg' 
                             />
-                        
-                        
-                      
                     </div>
                     
                     <div className='ml-5 w-1/2'>
-                        <h1 className='font-bold text-3xl'>{title}</h1><h2>Price: {price} ฿</h2>
-                        <p>{details}</p>
-                        <div className='flex mt-12'>
+                        <h1 className='font-bold text-3xl text-black dark:text-slate-200'>{title}</h1>
+                        <h2 className='text-black dark:text-slate-200'>Price: {price} ฿</h2>
+                        <p className='text-black dark:text-slate-200'>{details}</p>
+                        <div className='flex mt-12 text-black dark:text-slate-200'>
                           owner: 
                           <Image
                             src={`${imgOwner}`}
@@ -173,9 +156,9 @@ type PageParams = {
                           />
                           <p>{gmail}</p>
                         </div>
-                        <div className=''>
+                        <div className='text-black dark:text-slate-200'>
                             <p>-Chose color-</p>
-                            <select className="select select-primary w-full max-w-xs">
+                            <select className="select select-primary w-full max-w-xs bg-slate-600 dark:bg-gray-800">
                                 <option disabled selected>Chose color</option>
                                 {colorInfo.color.map((color: any) => {
                                     return (
@@ -187,12 +170,12 @@ type PageParams = {
                                 
                             </select>
                             <p>-Chose size-</p>
-                            <select className="select select-primary w-full max-w-xs">
+                            <select className="select select-primary w-full max-w-xs bg-slate-600 dark:bg-gray-800">
                                 <option disabled selected>Chose size</option>
                                 {sizeInfo.size.map((size: any) => {
                                     return (
 
-                                        <option key={size._id}>{size}</option>
+                                        <option className='' key={size._id}>{size}</option>
                                         
                                     )
                                 })}
@@ -201,8 +184,8 @@ type PageParams = {
                         </div>
                         <div className='float-start'>
                             
-                            <button className="btn btn-outline mt-10 mr-4">Add to card</button>
-                            <button className="btn btn-outline ">Buy now</button>
+                            <button className="btn btn-outline mt-10 mr-4 text-black dark:text-slate-200">Add to card</button>
+                            <button className="btn btn-outline text-black dark:text-slate-200">Buy now</button>
                         </div>
                     </div>
                 </div>

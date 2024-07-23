@@ -4,7 +4,7 @@ import Link from 'next/link'
 function breadcrumbs() {
     return (
         <div className="breadcrumbs mx-20 text-sm">
-            <ul>
+            <ul className='text-black dark:text-white'>
                 <li><Link href="/">Home</Link></li>
                 <li><a>Documents</a></li>
                 <li>Add Document</li>
